@@ -4,6 +4,11 @@
     {
         static void Main(string[] args)
         {
+            SpareGame();
+        }
+
+        public static void NonSpecialGame()
+        {
             Game game = new Game();
 
             game.SetFirstThrowPins(6);
@@ -37,8 +42,74 @@
             game.SetSecondThrowPins(6);
 
             Console.WriteLine(game);
-
         }
 
+        public static void HalwaySpareGame()
+        {
+            Game game = new Game();
+
+            game.SetFirstThrowPins(2);
+            game.SetSecondThrowPins(5);
+            Console.WriteLine(game);
+
+
+            game.SetFirstThrowPins(3);
+            game.SetSecondThrowPins(5);
+            Console.WriteLine(game);
+
+            game.SetFirstThrowPins(2);
+            game.SetSecondThrowPins(5);
+            Console.WriteLine(game);
+
+            game.SetFirstThrowPins(2);
+            game.SetSecondThrowPins(6);
+            Console.WriteLine(game);
+
+            game.SetFirstThrowPins(5);
+            game.SetSecondThrowPins(5);
+            Console.WriteLine(game);
+        }
+
+        public static void SpareGame()
+        {
+            Game game = new Game();
+
+            game.SetFirstThrowPins(2);
+            game.SetSecondThrowPins(5);
+            Console.WriteLine(game);
+
+
+            game.SetFirstThrowPins(3);
+            game.SetSecondThrowPins(5);
+            Console.WriteLine(game);
+
+            game.SetFirstThrowPins(2);
+            game.SetSecondThrowPins(5);
+            Console.WriteLine(game);
+
+            game.SetFirstThrowPins(2);
+            game.SetSecondThrowPins(6);
+            Console.WriteLine(game);
+
+            game.SetFirstThrowPins(5);
+            game.SetSecondThrowPins(5);
+            Console.WriteLine(game);
+
+            game.SetFirstThrowPins(1);
+            game.SetSecondThrowPins(1);
+            Console.WriteLine(game);
+
+            game.SetFirstThrowPins(1);
+            game.SetSecondThrowPins(9);
+            Console.WriteLine(game);
+
+            game.SetFirstThrowPins(1);
+            game.SetSecondThrowPins(9);
+            Console.WriteLine(game);
+
+            game.SetFirstThrowPins(1);
+            game.SetSecondThrowPins(1);
+            Console.WriteLine(game);
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace States
         }
         public int GetScore()
         {
-            throw new NotImplementedException();
+            return firstPinsKnockedDown;
         }
     }
 }

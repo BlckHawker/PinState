@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PinState.States;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,19 +18,27 @@ namespace PinState
             frames = new List<Frame>();
             for (int i = 0; i < 10; i++)
             {
-                Frame previousFrame =  i == 0 ? null : frames[i - 1];
-                frames.Add(new Frame(previousFrame));
+                Frame previous = i == 0 ? null : frames[i - 1];
+                Frame newFrame = new Frame(previous);
+                frames.Add(newFrame);
             }
 
+            for (int i = 0; i < 10; i++)
+            {
+                Frame next = i == 9 ? null : frames[i + 1];
+                Frame newFrame = frames[i];
+                newFrame.setNext(next);
+            }
         }
 
         public override string ToString()
         {
             string s = "";
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < currentFrameIndex; i++)
             {
                 s += $"Frame {i+1}\n{frames[i].ToString()}\n\n";
             }
+            s += $"Current Score: {GetScore()}\n==============================================";
             return s;
         }
 
@@ -49,6 +58,20 @@ namespace PinState
             Frame frame = frames[currentFrameIndex];
             frame.SetSecondThrowPins(pins);
             currentFrameIndex++;
+        }
+
+        public int GetScore()
+        { 
+            int score = 0;
+            for (int i = 0; i < currentFrameIndex; i++)
+            {
+                if (frames[currentFrameIndex].GetPinsState() is not Spare)
+                { 
+                    score += frames[i].GetScore();
+                }
+            }
+
+            return score;
         }
 
 
