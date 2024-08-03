@@ -11,35 +11,35 @@
         {
             Game game = new Game();
 
-            game.SetFirstThrowPins(6);
-            game.SetSecondThrowPins(1);
+            game.Throw(6);
+            game.Throw(1);
 
-            game.SetFirstThrowPins(7);
-            game.SetSecondThrowPins(0);
+            game.Throw(7);
+            game.Throw(0);
 
-            game.SetFirstThrowPins(0);
-            game.SetSecondThrowPins(8);
+            game.Throw(0);
+            game.Throw(8);
 
-            game.SetFirstThrowPins(9);
-            game.SetSecondThrowPins(0);
+            game.Throw(9);
+            game.Throw(0);
 
-            game.SetFirstThrowPins(2);
-            game.SetSecondThrowPins(0);
+            game.Throw(2);
+            game.Throw(0);
 
-            game.SetFirstThrowPins(7);
-            game.SetSecondThrowPins(1);
+            game.Throw(7);
+            game.Throw(1);
 
-            game.SetFirstThrowPins(9);
-            game.SetSecondThrowPins(0);
+            game.Throw(9);
+            game.Throw(0);
 
-            game.SetFirstThrowPins(6);
-            game.SetSecondThrowPins(3);
+            game.Throw(6);
+            game.Throw(3);
 
-            game.SetFirstThrowPins(0);
-            game.SetSecondThrowPins(5);
+            game.Throw(0);
+            game.Throw(5);
 
-            game.SetFirstThrowPins(1);
-            game.SetSecondThrowPins(6);
+            game.Throw(1);
+            game.Throw(6);
 
             Console.WriteLine(game);
         }
@@ -48,25 +48,25 @@
         {
             Game game = new Game();
 
-            game.SetFirstThrowPins(2);
-            game.SetSecondThrowPins(5);
+            game.Throw(2);
+            game.Throw(5);
             Console.WriteLine(game);
 
 
-            game.SetFirstThrowPins(3);
-            game.SetSecondThrowPins(5);
+            game.Throw(3);
+            game.Throw(5);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(2);
-            game.SetSecondThrowPins(5);
+            game.Throw(2);
+            game.Throw(5);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(2);
-            game.SetSecondThrowPins(6);
+            game.Throw(2);
+            game.Throw(6);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(5);
-            game.SetSecondThrowPins(5);
+            game.Throw(5);
+            game.Throw(5);
             Console.WriteLine(game);
         }
 
@@ -74,41 +74,41 @@
         {
             Game game = new Game();
 
-            game.SetFirstThrowPins(2);
-            game.SetSecondThrowPins(5);
+            game.Throw(2);
+            game.Throw(5);
             Console.WriteLine(game);
 
 
-            game.SetFirstThrowPins(3);
-            game.SetSecondThrowPins(5);
+            game.Throw(3);
+            game.Throw(5);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(2);
-            game.SetSecondThrowPins(5);
+            game.Throw(2);
+            game.Throw(5);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(2);
-            game.SetSecondThrowPins(6);
+            game.Throw(2);
+            game.Throw(6);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(5);
-            game.SetSecondThrowPins(5);
+            game.Throw(5);
+            game.Throw(5);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(1);
-            game.SetSecondThrowPins(1);
+            game.Throw(1);
+            game.Throw(1);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(1);
-            game.SetSecondThrowPins(9);
+            game.Throw(1);
+            game.Throw(9);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(1);
-            game.SetSecondThrowPins(9);
+            game.Throw(1);
+            game.Throw(9);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(1);
-            game.SetSecondThrowPins(1);
+            game.Throw(1);
+            game.Throw(1);
             Console.WriteLine(game);
         }
 
@@ -118,11 +118,11 @@
         {
             Game game = new Game();
 
-            game.SetFirstThrowPins(1);
-            game.SetSecondThrowPins(1);
+            game.Throw(1);
+            game.Throw(1);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(10);
+            game.Throw(10);
             Console.WriteLine(game);
         }
 
@@ -131,31 +131,30 @@
         {
             Game game = new Game();
 
-            game.SetFirstThrowPins(1);
-            game.SetSecondThrowPins(1);
+            game.Throw(1);
+            game.Throw(1);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(10);
+            game.Throw(10);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(1);
-            game.SetSecondThrowPins(1);
+            game.Throw(1);
+            game.Throw(1);
             Console.WriteLine(game);
         }
 
-        //tests double with both next frames being emoty
         public static void StrikeDoubleEmpty()
         {
             Game game = new Game();
 
-            game.SetFirstThrowPins(1);
-            game.SetSecondThrowPins(1);
+            game.Throw(1);
+            game.Throw(1);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(10);
+            game.Throw(10);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(10);
+            game.Throw(10);
             Console.WriteLine(game);
         }
 
@@ -163,18 +162,18 @@
         {
             Game game = new Game();
 
-            game.SetFirstThrowPins(1);
-            game.SetSecondThrowPins(1);
+            game.Throw(1);
+            game.Throw(1);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(10);
+            game.Throw(10);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(10);
+            game.Throw(10);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(1);
-            game.SetSecondThrowPins(1);
+            game.Throw(1);
+            game.Throw(1);
             Console.WriteLine(game);
         }
 
@@ -182,17 +181,17 @@
         {
             Game game = new Game();
 
-            game.SetFirstThrowPins(1);
-            game.SetSecondThrowPins(1);
+            game.Throw(1);
+            game.Throw(1);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(10);
+            game.Throw(10);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(10);
+            game.Throw(10);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(10);
+            game.Throw(10);
             Console.WriteLine(game);
 
         }
@@ -202,21 +201,21 @@
         {
             Game game = new Game();
 
-            game.SetFirstThrowPins(1);
-            game.SetSecondThrowPins(1);
+            game.Throw(1);
+            game.Throw(1);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(10);
+            game.Throw(10);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(10);
+            game.Throw(10);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(10);
+            game.Throw(10);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(1);
-            game.SetSecondThrowPins(1);
+            game.Throw(1);
+            game.Throw(1);
             Console.WriteLine(game);
 
         }
@@ -225,15 +224,15 @@
         public static void SpareStrikeNothing()
         { 
             Game game = new Game();
-            game.SetFirstThrowPins(1);
-            game.SetSecondThrowPins(1);
+            game.Throw(1);
+            game.Throw(1);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(5);
-            game.SetSecondThrowPins(5);
+            game.Throw(5);
+            game.Throw(5);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(10);
+            game.Throw(10);
             Console.WriteLine(game);
         }
 
@@ -241,19 +240,19 @@
         public static void SpareStrikeSomething()
         {
             Game game = new Game();
-            game.SetFirstThrowPins(1);
-            game.SetSecondThrowPins(1);
+            game.Throw(1);
+            game.Throw(1);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(5);
-            game.SetSecondThrowPins(5);
+            game.Throw(5);
+            game.Throw(5);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(10);
+            game.Throw(10);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(1);
-            game.SetSecondThrowPins(1);
+            game.Throw(1);
+            game.Throw(1);
             Console.WriteLine(game);
         }
 
@@ -261,15 +260,15 @@
         public static void StrikeSpareNothing()
         {
             Game game = new Game();
-            game.SetFirstThrowPins(1);
-            game.SetSecondThrowPins(1);
+            game.Throw(1);
+            game.Throw(1);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(10);
+            game.Throw(10);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(5);
-            game.SetSecondThrowPins(5);
+            game.Throw(5);
+            game.Throw(5);
             Console.WriteLine(game);
         }
 
@@ -277,19 +276,19 @@
         public static void StrikeSpareSomething()
         {
             Game game = new Game();
-            game.SetFirstThrowPins(1);
-            game.SetSecondThrowPins(1);
+            game.Throw(1);
+            game.Throw(1);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(10);
+            game.Throw(10);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(5);
-            game.SetSecondThrowPins(5);
+            game.Throw(5);
+            game.Throw(5);
             Console.WriteLine(game);
 
-            game.SetFirstThrowPins(1);
-            game.SetSecondThrowPins(1);
+            game.Throw(1);
+            game.Throw(1);
             Console.WriteLine(game);
         }
         

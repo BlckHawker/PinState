@@ -57,31 +57,31 @@ namespace PinState
             return s;
         }
 
-        public void SetFirstThrowPins(int pins)
-        {
-            Frame frame = frames[currentFrameIndex];
-            frame.SetFirstThrowPins(pins);
-            if (frame.GetPinsKnockedDown() == 10)
-            {
-                currentFrameIndex++;
-            }
-
-        }
-
-        public void SetSecondThrowPins(int pins)
-        {
-            Frame frame = frames[currentFrameIndex];
-            frame.SetSecondThrowPins(pins);
-
-            if(currentFrameIndex != 9)
-            {
-                currentFrameIndex++;
-            }
-        }
-
         public void Throw(int pins)
-        { 
-            
+        {
+            Frame currentFrame = frames[currentFrameIndex];
+
+            //check if this is the first throw or second
+            bool firstThrow = Frame.IsNone(currentFrame);
+
+            if (firstThrow)
+            {
+                currentFrame.SetFirstThrowPins(pins);
+                if (currentFrame.GetPinsKnockedDown() == 10)
+                {
+                    currentFrameIndex++;
+                }
+            }
+
+            else
+            {
+                currentFrame.SetSecondThrowPins(pins);
+
+                if (currentFrameIndex != 9)
+                {
+                    currentFrameIndex++;
+                }
+            }
         }
         public int GetScore()
         { 
