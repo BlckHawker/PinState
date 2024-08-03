@@ -1,10 +1,12 @@
-﻿namespace PinState
+﻿using System.Runtime.CompilerServices;
+
+namespace PinState
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            StrikeSpareSomething();
+            Debug();
         }
 
         public static void NonSpecialGame()
@@ -291,13 +293,112 @@
             game.Throw(1);
             Console.WriteLine(game);
         }
-        
-        
-        //===============do on saturday
-        //strike is first frame
 
+        //strike is first frame
+        public static void StrikeFirst()
+        { 
+            Game game = new Game();
+            game.Throw(10);
+            game.Throw(10);
+            game.Throw(10);
+            Console.WriteLine(game);
+
+        }
         //spare is first frame
+        public static void SpareFirst()
+        {
+            Game game = new Game();
+            game.Throw(5);
+            game.Throw(5);
+            game.Throw(1);
+            game.Throw(1);
+            Console.WriteLine(game);
+
+        }
+
+        public static void Debug()
+        {
+            Game game = new Game();
+
+            //Frame 1
+            game.Throw(8);
+            Console.WriteLine(game);
+            game.Throw(1);
+            Console.WriteLine(game);
+
+            //Frame 2
+            game.Throw(7);
+            Console.WriteLine(game);
+            game.Throw(2);
+            Console.WriteLine(game);
+
+            //Frame 3
+            game.Throw(7);
+            Console.WriteLine(game);
+            game.Throw(2);
+            Console.WriteLine(game);
+
+            //Frame 4
+            game.Throw(7);
+            Console.WriteLine(game);
+            game.Throw(3);
+            Console.WriteLine(game);
+
+            //Frame 5
+            game.Throw(8);
+            Console.WriteLine(game);
+            game.Throw(1);
+            Console.WriteLine(game);
+
+            //Frame 6
+            game.Throw(8);
+            Console.WriteLine(game);
+            game.Throw(2);
+            Console.WriteLine(game);
+
+            //Frame 7
+            game.Throw(9);
+            Console.WriteLine(game);
+            game.Throw(1);
+            Console.WriteLine(game);
+
+            //Frame 8
+            game.Throw(10);
+            Console.WriteLine(game);
+
+            //Frame 9
+            game.Throw(7);
+            Console.WriteLine(game);
+            game.Throw(2);
+            Console.WriteLine(game);
+
+            //Frame 10
+            game.Throw(9);
+            Console.WriteLine(game);
+            game.Throw(0);
+            Console.WriteLine(game);
+        }
 
         //method that gets input from user
+        public static void InputGame()
+        {
+            string input;
+            int inputNum;
+            Game game = new Game();
+
+            do
+            {
+                do
+                {
+                    Console.Write("Input: ");
+                    input = Console.ReadLine();
+                } while (!int.TryParse(input, out inputNum));
+
+                game.Throw(inputNum);
+                Console.WriteLine(game);
+            } while (!game.isDone());
+
+            Console.WriteLine(game);
+        }
     }
 }

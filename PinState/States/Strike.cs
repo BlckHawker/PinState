@@ -58,8 +58,8 @@ namespace PinState.States
             }
 
 
-            //if the first frame is not a strike, return the score + 10
-            else if (!Frame.IsStrike(nextFrames[0]))
+            //if the first frame is not closed, return the score + 10
+            else if (Frame.IsClosed(nextFrames[0]))
             {
                 return 10 + CalculateClosedFrameScore(nextFrames[0]);
             }
@@ -92,14 +92,21 @@ namespace PinState.States
 
         private int CalculateClosedFrameScore(Frame frame)
         {
+            //if the next frame is open, return zero
+            if (Frame.IsOpen(frame))
+            {
+                return 0;
+            }
+
             int[] sum = new int[2];
             sum[0] = int.Parse(frame.GetFirstThrow());
 
             //if spare, do some math in order to get the second number
-            if (frame.GetSecondThrow() == "/")
+            if (Frame.IsSpare(frame))
             {
                 sum[1] = 10 - sum[0];
             }
+
 
             else
             {

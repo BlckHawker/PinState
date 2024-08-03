@@ -140,5 +140,15 @@ namespace PinState
         {
             return frame != null && frame.pinState is None;
         }
+
+        public static bool IsOpen(Frame frame)
+        {
+            return frame != null && frame.pinState is Open;
+        }
+
+        public static bool IsClosed(Frame frame)
+        {
+            return frame != null && frame.pinState is Closed;
+        }
     }
 }

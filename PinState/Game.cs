@@ -40,19 +40,16 @@ namespace PinState
 
             do
             {
-                counter++;
                 if (counter == 10)
                 {
                     break;
                 }
-
-                if (Frame.IsStrike(currentFrame))
-                {
-                    int i = 0;
-                }
-                s += $"Frame {counter}\n{currentFrame.ToString()}\n\n";
                 currentFrame = frames[counter];
-            } while (!Frame.IsNone(currentFrame) || counter == 10);
+
+                s += $"Frame {counter + 1}\n{currentFrame.ToString()}\n\n";
+                counter++;
+
+            } while (counter == 10 || !Frame.IsNone(frames[counter]));
             s += $"Current Score: {GetScore()}\n==============================================";
             return s;
         }
@@ -88,13 +85,22 @@ namespace PinState
             int score = 0;
             for (int i = 0; i < currentFrameIndex; i++)
             {
-                if (!Frame.IsSpare(frames[currentFrameIndex]))
-                { 
-                    score += frames[i].GetScore();
-                }
+                score += frames[i].GetScore();
+            }
+
+            if (currentFrameIndex == 9)
+            {
+                score += frames.Last().GetScore();
             }
 
             return score;
+        }
+
+        public bool isDone()
+        {
+            Frame lastFrame = frames.Last();
+
+            return !Frame.IsNone(lastFrame) && !Frame.IsOpen(lastFrame);
         }
 
 
