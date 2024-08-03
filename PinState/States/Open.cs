@@ -15,7 +15,7 @@ namespace States
         }
         public int GetScore()
         {
-            return firstPinsKnockedDown;
+            return 0;
         }
 
         public string GetFirstThrow()
@@ -25,7 +25,7 @@ namespace States
 
         public string GetSecondThrow()
         {
-            return "-";
+            return "";
         }
     }
 }

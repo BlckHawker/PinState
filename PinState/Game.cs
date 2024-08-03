@@ -1,4 +1,5 @@
 ﻿using PinState.States;
+using States;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,10 +35,24 @@ namespace PinState
         public override string ToString()
         {
             string s = "";
-            for (int i = 0; i < currentFrameIndex; i++)
+            Frame currentFrame = frames[0];
+            int counter = 0;
+
+            do
             {
-                s += $"Frame {i+1}\n{frames[i].ToString()}\n\n";
-            }
+                counter++;
+                if (counter == 10)
+                {
+                    break;
+                }
+
+                if (Frame.IsStrike(currentFrame))
+                {
+                    int i = 0;
+                }
+                s += $"Frame {counter}\n{currentFrame.ToString()}\n\n";
+                currentFrame = frames[counter];
+            } while (currentFrame.GetPinsState() is not None || counter == 10);
             s += $"Current Score: {GetScore()}\n==============================================";
             return s;
         }
@@ -57,7 +72,11 @@ namespace PinState
         {
             Frame frame = frames[currentFrameIndex];
             frame.SetSecondThrowPins(pins);
-            currentFrameIndex++;
+
+            if(currentFrameIndex != 9)
+            {
+                currentFrameIndex++;
+            }
         }
 
         public int GetScore()

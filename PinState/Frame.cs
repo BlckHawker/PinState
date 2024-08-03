@@ -28,17 +28,42 @@ namespace PinState
         }
         public void SetFirstThrowPins(int pins)
         {
-            if (previousFrame != null && previousFrame.pinState is Spare)
-            { 
+            //if the previous frame is a spare, set the next throw
+            if (IsSpare(previousFrame))
+            {
                 ((Spare)previousFrame.pinState).SetNextThrow(pins);
             }
+
+            //if the previous frame is a spare, set the first frame
+            else if(IsStrike(previousFrame))
+            { 
+                ((Strike)previousFrame.pinState).setFirstFrame(this);
+
+                //if two frames from this one was a strike, set the second frame
+                if (IsStrike(previousFrame.previousFrame))
+                { 
+                    ((Strike)previousFrame.previousFrame.pinState).setSecondFrame(this);
+                }
+            }
+
             pinsKnockedOut[0] = pins;
-            SetState(new Open(pinsKnockedOut[0]));
+
+            if (pins == 10)
+            {
+                SetState(new Strike());
+            }
+
+            else
+            { 
+                SetState(new Open(pinsKnockedOut[0]));
+            }
         }
         public void SetSecondThrowPins(int pins)
         {
             pinsKnockedOut[1] = pins;
             int pinSum = pinsKnockedOut.Sum();
+
+            
 
             if (pinSum == 10)
             {
@@ -49,6 +74,19 @@ namespace PinState
                 SetState(new Closed(pinsKnockedOut[0], pinsKnockedOut[1]));
             }
 
+            // the prevois strike's first frame to this
+            if (IsStrike(previousFrame))
+            {
+                Strike strike = (Strike)previousFrame.pinState;
+                strike.setFirstFrame(this);
+
+                //if two frames from this one was a strike,set the second frame
+                if (IsStrike(previousFrame.previousFrame))
+                {
+                    Strike strike2 = (Strike)previousFrame.previousFrame.pinState;
+                    strike2.setSecondFrame(this);
+                }
+            }
         }
 
         private void SetState(IPinState pinState) 
@@ -59,7 +97,11 @@ namespace PinState
         public override string ToString()
         {
             string s = $"First throw: {pinState.GetFirstThrow()}\n";
-            s += $"Second throw: {pinState.GetSecondThrow()}\n";
+            if (pinState is not Strike)
+            { 
+                s += $"Second throw: {pinState.GetSecondThrow()}\n";
+            }
+
             s += $"Score: {pinState.GetScore()}\n";
             return s;
         }
@@ -79,10 +121,25 @@ namespace PinState
             return pinState.GetFirstThrow();
         }
 
+        public string GetSecondThrow()
+        {
+            return pinState.GetSecondThrow();
+        }
+
         //! This needs to change as the purpose of the context is to have the state been encapsualted and not seen by any other outside method
         public IPinState GetPinsState()
         { 
             return this.pinState;
+        }
+
+        public static bool IsStrike(Frame frame)
+        {
+            return frame != null && frame.pinState is Strike;
+        }
+
+        public static bool IsSpare(Frame frame)
+        {
+            return frame != null && frame.pinState is Spare;
         }
     }
 }

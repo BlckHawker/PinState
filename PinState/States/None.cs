@@ -19,12 +19,12 @@ namespace States
 
         public string GetFirstThrow()
         {
-            return "-";
+            return "";
         }
 
         public string GetSecondThrow()
         {
-            return "-";
+            return "";
         }
     }
 }
