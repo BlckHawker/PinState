@@ -32,5 +32,15 @@ namespace PinState.States
         {
             return nextThrow == int.MinValue ? 0 : nextThrow + 10;
         }
+
+        public string GetFirstThrow()
+        {
+            return "" + pins[0];
+        }
+
+        public string GetSecondThrow()
+        {
+            return "/";
+        }
     }
 }

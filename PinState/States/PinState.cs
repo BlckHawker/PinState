@@ -9,5 +9,10 @@ namespace States
     public interface IPinState
     {
         public int GetScore();
+
+        public string GetFirstThrow();
+
+        public string GetSecondThrow();
+
     }
 }

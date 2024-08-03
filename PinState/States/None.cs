@@ -16,5 +16,15 @@ namespace States
         {
             return int.MinValue;
         }
+
+        public string GetFirstThrow()
+        {
+            return "-";
+        }
+
+        public string GetSecondThrow()
+        {
+            return "-";
+        }
     }
 }

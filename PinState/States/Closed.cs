@@ -10,7 +10,7 @@ namespace States
     {
         int[] pins = new int[2];
 
-        public Closed(int first, int second) 
+        public Closed(int first, int second)
         {
             pins[0] = first;
             pins[1] = second;
@@ -19,6 +19,16 @@ namespace States
         public int GetScore()
         {
             return pins.Sum();
+        }
+
+        public string GetFirstThrow()
+        {
+            return "" + pins[0];
+        }
+
+        public string GetSecondThrow()
+        {
+            return "" + pins[1];
         }
     }
 }

@@ -17,5 +17,15 @@ namespace States
         {
             return firstPinsKnockedDown;
         }
+
+        public string GetFirstThrow()
+        {
+            return "" + firstPinsKnockedDown;
+        }
+
+        public string GetSecondThrow()
+        {
+            return "-";
+        }
     }
 }

@@ -58,30 +58,9 @@ namespace PinState
 
         public override string ToString()
         {
-            string s = $"First throw: {pinsKnockedOut[0]}";
-
-           
-            if (pinState is Spare)
-            {
-                s += "\nSecond throw: /";
-                //current frame is a spare and next frame does not exist
-                if (nextFrame.pinState is None)
-                {
-                   s += "\nScore: -";
-                }
-
-                //current frame is a spare and next frame does exist
-                else
-                {
-                    int bonus = nextFrame.GetPinsKnockedDown();
-                    s += $"\nScore: {10 + bonus}";
-                }
-            }
-
-            else //Closed
-            {
-                s += $"\nSecond throw: {pinsKnockedOut[1]}\nScore: {GetScore()}";
-            }
+            string s = $"First throw: {pinState.GetFirstThrow()}\n";
+            s += $"Second throw: {pinState.GetSecondThrow()}\n";
+            s += $"Score: {pinState.GetScore()}\n";
             return s;
         }
 
@@ -93,6 +72,11 @@ namespace PinState
         public int GetPinsKnockedDown()
         {
             return pinsKnockedOut.Sum();
+        }
+
+        public string GetFirstThrow()
+        {
+            return pinState.GetFirstThrow();
         }
 
         //! This needs to change as the purpose of the context is to have the state been encapsualted and not seen by any other outside method
