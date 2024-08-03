@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            StrikeTurkeyEmpty();
+            StrikeSpareSomething();
         }
 
         public static void NonSpecialGame()
@@ -198,18 +198,103 @@
         }
 
         //turkey, something
+        public static void StrikeTurkeySomething()
+        {
+            Game game = new Game();
+
+            game.SetFirstThrowPins(1);
+            game.SetSecondThrowPins(1);
+            Console.WriteLine(game);
+
+            game.SetFirstThrowPins(10);
+            Console.WriteLine(game);
+
+            game.SetFirstThrowPins(10);
+            Console.WriteLine(game);
+
+            game.SetFirstThrowPins(10);
+            Console.WriteLine(game);
+
+            game.SetFirstThrowPins(1);
+            game.SetSecondThrowPins(1);
+            Console.WriteLine(game);
+
+        }
 
         //spare, strike, nothing
+        public static void SpareStrikeNothing()
+        { 
+            Game game = new Game();
+            game.SetFirstThrowPins(1);
+            game.SetSecondThrowPins(1);
+            Console.WriteLine(game);
+
+            game.SetFirstThrowPins(5);
+            game.SetSecondThrowPins(5);
+            Console.WriteLine(game);
+
+            game.SetFirstThrowPins(10);
+            Console.WriteLine(game);
+        }
 
         //spare, strike, something
+        public static void SpareStrikeSomething()
+        {
+            Game game = new Game();
+            game.SetFirstThrowPins(1);
+            game.SetSecondThrowPins(1);
+            Console.WriteLine(game);
 
+            game.SetFirstThrowPins(5);
+            game.SetSecondThrowPins(5);
+            Console.WriteLine(game);
+
+            game.SetFirstThrowPins(10);
+            Console.WriteLine(game);
+
+            game.SetFirstThrowPins(1);
+            game.SetSecondThrowPins(1);
+            Console.WriteLine(game);
+        }
 
         //strike, spare, nothing
+        public static void StrikeSpareNothing()
+        {
+            Game game = new Game();
+            game.SetFirstThrowPins(1);
+            game.SetSecondThrowPins(1);
+            Console.WriteLine(game);
+
+            game.SetFirstThrowPins(10);
+            Console.WriteLine(game);
+
+            game.SetFirstThrowPins(5);
+            game.SetSecondThrowPins(5);
+            Console.WriteLine(game);
+        }
 
         //strike, spare, something
+        public static void StrikeSpareSomething()
+        {
+            Game game = new Game();
+            game.SetFirstThrowPins(1);
+            game.SetSecondThrowPins(1);
+            Console.WriteLine(game);
 
+            game.SetFirstThrowPins(10);
+            Console.WriteLine(game);
 
+            game.SetFirstThrowPins(5);
+            game.SetSecondThrowPins(5);
+            Console.WriteLine(game);
 
+            game.SetFirstThrowPins(1);
+            game.SetSecondThrowPins(1);
+            Console.WriteLine(game);
+        }
+        //===============do on saturday
+        //strike is first frame
 
+        //spare is first frame
     }
 }
