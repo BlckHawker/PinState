@@ -126,12 +126,6 @@ namespace PinState
             return pinState.GetSecondThrow();
         }
 
-        //! This needs to change as the purpose of the context is to have the state been encapsualted and not seen by any other outside method
-        public IPinState GetPinsState()
-        { 
-            return this.pinState;
-        }
-
         public static bool IsStrike(Frame frame)
         {
             return frame != null && frame.pinState is Strike;
@@ -140,6 +134,11 @@ namespace PinState
         public static bool IsSpare(Frame frame)
         {
             return frame != null && frame.pinState is Spare;
+        }
+
+        public static bool IsNone(Frame frame)
+        {
+            return frame != null && frame.pinState is None;
         }
     }
 }

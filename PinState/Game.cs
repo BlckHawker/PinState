@@ -52,7 +52,7 @@ namespace PinState
                 }
                 s += $"Frame {counter}\n{currentFrame.ToString()}\n\n";
                 currentFrame = frames[counter];
-            } while (currentFrame.GetPinsState() is not None || counter == 10);
+            } while (!Frame.IsNone(currentFrame) || counter == 10);
             s += $"Current Score: {GetScore()}\n==============================================";
             return s;
         }
@@ -79,12 +79,16 @@ namespace PinState
             }
         }
 
+        public void Throw(int pins)
+        { 
+            
+        }
         public int GetScore()
         { 
             int score = 0;
             for (int i = 0; i < currentFrameIndex; i++)
             {
-                if (frames[currentFrameIndex].GetPinsState() is not Spare)
+                if (!Frame.IsSpare(frames[currentFrameIndex]))
                 { 
                     score += frames[i].GetScore();
                 }
