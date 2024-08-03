@@ -292,9 +292,13 @@
             game.SetSecondThrowPins(1);
             Console.WriteLine(game);
         }
+        
+        
         //===============do on saturday
         //strike is first frame
 
         //spare is first frame
+
+        //method that gets input from user
     }
 }
