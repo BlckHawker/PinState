@@ -1,4 +1,5 @@
-﻿using PinState.States;
+﻿using PinState.Frames;
+using PinState.States;
 using States;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,8 @@ namespace PinState
             for (int i = 0; i < 10; i++)
             {
                 Frame previous = i == 0 ? null : frames[i - 1];
-                Frame newFrame = new Frame(previous);
+                
+                Frame newFrame = i != 9 ? new RegularFrame(previous) : new TenthFrame(previous);
                 frames.Add(newFrame);
             }
 
@@ -51,6 +53,15 @@ namespace PinState
 
             } while (counter == 10 || !Frame.IsNone(frames[counter]));
             s += $"Current Score: {GetScore()}\n==============================================";
+
+            if (currentFrame is TenthFrame) 
+            {
+                TenthFrame tenthFrame = (TenthFrame)currentFrame;
+                if (tenthFrame.GetThrow() != ThrowCount.Third)
+                { 
+                    tenthFrame.IncrementThrow();
+                }
+            }
             return s;
         }
 
@@ -59,26 +70,50 @@ namespace PinState
             Frame currentFrame = frames[currentFrameIndex];
 
             //check if this is the first throw or second
-            bool firstThrow = Frame.IsNone(currentFrame);
+            bool regularFrame = currentFrame is RegularFrame;
+            bool firstThrow = (regularFrame && Frame.IsNone(currentFrame)) || (!regularFrame && ((TenthFrame)currentFrame).GetThrow() == ThrowCount.First);
 
-            if (firstThrow)
+            if (regularFrame)
             {
-                currentFrame.SetFirstThrowPins(pins);
-                if (currentFrame.GetPinsKnockedDown() == 10)
+                if (firstThrow)
                 {
-                    currentFrameIndex++;
+                    currentFrame.SetFirstThrowPins(pins);
+                    if (currentFrame.GetPinsKnockedDown() == 10)
+                    {
+                        currentFrameIndex++;
+                    }
+                }
+
+                else
+                {
+                    currentFrame.SetSecondThrowPins(pins);
+
+                    if (currentFrameIndex != 9)
+                    {
+                        currentFrameIndex++;
+                    }
                 }
             }
 
             else
             {
-                currentFrame.SetSecondThrowPins(pins);
-
-                if (currentFrameIndex != 9)
+                TenthFrame tenthFrame = (TenthFrame)currentFrame;
+                if (firstThrow)
                 {
-                    currentFrameIndex++;
+                    tenthFrame.SetFirstThrowPins(pins);
+                }
+
+                else if (tenthFrame.GetThrow() == ThrowCount.Second)
+                {
+                    tenthFrame.SetSecondThrowPins(pins);
+                }
+
+                else
+                {
+                    tenthFrame.SetThirdThrowPins(pins);
                 }
             }
+
         }
         public int GetScore()
         { 

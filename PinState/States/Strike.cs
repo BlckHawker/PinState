@@ -1,4 +1,5 @@
-﻿using States;
+﻿using PinState.Frames;
+using States;
 using System;
 using System.Collections.Generic;
 using System.Linq;

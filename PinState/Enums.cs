@@ -6,19 +6,10 @@ using System.Threading.Tasks;
 
 namespace PinState
 {
-    public enum Pins
+    public enum ThrowCount
     {
-        Zero,
-        One,
-        Two,
-        Three,
-        Four,
-        Five,
-        Six,
-        Seven,
-        Eight,
-        Nine,
-        Spare,
-        Strike
+        First,
+        Second, 
+        Third
     }
 }

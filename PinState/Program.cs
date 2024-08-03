@@ -6,7 +6,7 @@ namespace PinState
     {
         static void Main(string[] args)
         {
-            Debug();
+            TenthFrameRegular();
         }
 
         public static void NonSpecialGame()
@@ -373,9 +373,74 @@ namespace PinState
             Console.WriteLine(game);
 
             //Frame 10
-            game.Throw(9);
+            //game.Throw(9);
+            //Console.WriteLine(game);
+            //game.Throw(0);
+            //Console.WriteLine(game);
+        }
+
+
+        public static void TenthFrameRegular()
+        {
+            Game game = new Game();
+
+            //Frame 1
+            game.Throw(1);
             Console.WriteLine(game);
-            game.Throw(0);
+            game.Throw(1);
+            Console.WriteLine(game);
+
+            //Frame 2
+            game.Throw(1);
+            Console.WriteLine(game);
+            game.Throw(1);
+            Console.WriteLine(game);
+
+            //Frame 3
+            game.Throw(1);
+            Console.WriteLine(game);
+            game.Throw(1);
+            Console.WriteLine(game);
+
+            //Frame 4
+            game.Throw(1);
+            Console.WriteLine(game);
+            game.Throw(1);
+            Console.WriteLine(game);
+
+            //Frame 5
+            game.Throw(1);
+            Console.WriteLine(game);
+            game.Throw(1);
+            Console.WriteLine(game);
+
+            //Frame 6
+            game.Throw(1);
+            Console.WriteLine(game);
+            game.Throw(1);
+            Console.WriteLine(game);
+
+            //Frame 7
+            game.Throw(1);
+            Console.WriteLine(game);
+            game.Throw(1);
+            Console.WriteLine(game);
+
+            //Frame 8
+            game.Throw(1);
+            Console.WriteLine(game);
+            game.Throw(1);
+            Console.WriteLine(game);
+
+            //Frame 9
+            game.Throw(1);
+            Console.WriteLine(game);
+            game.Throw(1);
+            Console.WriteLine(game);
+
+            //Frame 10
+            game.Throw(10);
+            game.Throw(1);
             Console.WriteLine(game);
         }
 
