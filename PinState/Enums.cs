@@ -10,7 +10,6 @@ namespace PinState
     {
         First,
         Second, 
-        Third,
-        ShouldNotPrcoess
+        Third
     }
 }

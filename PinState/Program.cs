@@ -6,7 +6,7 @@ namespace PinState
     {
         static void Main(string[] args)
         {
-            TenthFrameRegular();
+            TenthFrameRule1();
         }
 
         public static void NonSpecialGame()
@@ -379,11 +379,119 @@ namespace PinState
             //Console.WriteLine(game);
         }
 
-
-        public static void TenthFrameRegular()
+        public static void TenthFrameRule1()
         {
             Game game = new Game();
 
+            TenthFrameStart(game);
+
+            //Frame 10
+            game.Throw(10);
+            //Console.WriteLine(game);
+            game.Throw(10);
+            //Console.WriteLine(game);
+            game.Throw(10);
+            Console.WriteLine(game);
+        }
+
+        public static void TenthFrameRule2()
+        {
+            Game game = new Game();
+
+            TenthFrameStart(game);
+
+            //Frame 10
+            game.Throw(10);
+            Console.WriteLine(game);
+            game.Throw(1);
+            Console.WriteLine(game);
+            game.Throw(1);
+            Console.WriteLine(game);
+        }
+
+        public static void TenthFrameRule3()
+        {
+            Game game = new Game();
+
+            TenthFrameStart(game);
+
+            //Frame 10
+            game.Throw(1);
+            Console.WriteLine(game);
+            game.Throw(8);
+            Console.WriteLine(game);
+        }
+
+        public static void TenthFrameRule4()
+        {
+            Game game = new Game();
+
+            TenthFrameStart(game);
+
+            //Frame 10
+            game.Throw(10);
+            Console.WriteLine(game);
+            game.Throw(10);
+            Console.WriteLine(game);
+            game.Throw(1);
+            Console.WriteLine(game);
+        }
+
+        public static void TenthFrameRule5()
+        {
+            Game game = new Game();
+
+            TenthFrameStart(game);
+
+            //Frame 10
+            game.Throw(5);
+            Console.WriteLine(game);
+            game.Throw(5);
+            Console.WriteLine(game);
+            game.Throw(1);
+            Console.WriteLine(game);
+        }
+
+        public static void TenthFrameRule6()
+        {
+            Game game = new Game();
+
+            TenthFrameStart(game);
+
+            //Frame 10
+            game.Throw(5);
+            Console.WriteLine(game);
+            game.Throw(5);
+            Console.WriteLine(game);
+            game.Throw(10);
+            Console.WriteLine(game);
+        }
+
+
+        //method that gets input from user
+        public static void InputGame()
+        {
+            string input;
+            int inputNum;
+            Game game = new Game();
+
+            do
+            {
+                do
+                {
+                    Console.Write("Input: ");
+                    input = Console.ReadLine();
+                } while (!int.TryParse(input, out inputNum));
+
+                game.Throw(inputNum);
+                Console.WriteLine(game);
+            } while (!game.isDone());
+
+            Console.WriteLine(game);
+        }
+
+        public static void TenthFrameStart(Game game)
+        {
             //Frame 1
             game.Throw(1);
             Console.WriteLine(game);
@@ -436,35 +544,6 @@ namespace PinState
             game.Throw(1);
             Console.WriteLine(game);
             game.Throw(1);
-            Console.WriteLine(game);
-
-
-            //Frame 10
-            game.Throw(10);
-            Console.WriteLine(game);
-            game.Throw(1);
-            Console.WriteLine(game);
-        }
-
-        //method that gets input from user
-        public static void InputGame()
-        {
-            string input;
-            int inputNum;
-            Game game = new Game();
-
-            do
-            {
-                do
-                {
-                    Console.Write("Input: ");
-                    input = Console.ReadLine();
-                } while (!int.TryParse(input, out inputNum));
-
-                game.Throw(inputNum);
-                Console.WriteLine(game);
-            } while (!game.isDone());
-
             Console.WriteLine(game);
         }
     }
