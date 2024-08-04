@@ -31,9 +31,7 @@ namespace PinState.Frames
         public override void SetFirstThrowPins(int pins)
         {
             pinsKnockedDown[0] = pins;
-            Console.WriteLine("Pins knocked down: " + pins);
             throwCount++;
-            Console.WriteLine(throwCount);
         }
 
         public override void SetSecondThrowPins(int pins)

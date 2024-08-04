@@ -4,6 +4,7 @@ using States;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -38,6 +39,7 @@ namespace PinState
         {
             string s = "";
             Frame currentFrame = frames[0];
+            bool nextFrameIsEmpty;
             int counter = 0;
 
             do
@@ -51,7 +53,9 @@ namespace PinState
                 s += $"Frame {counter + 1}\n{currentFrame.ToString()}\n\n";
                 counter++;
 
-            } while (counter == 10 || !Frame.IsNone(frames[counter]));
+                nextFrameIsEmpty = (counter != 9 && Frame.IsNone(frames[counter])) || (frames[counter] is TenthFrame && ((TenthFrame)frames[counter]).GetThrow() == ThrowCount.First); 
+
+            } while (counter == 10 || !nextFrameIsEmpty);
             s += $"Current Score: {GetScore()}\n==============================================";
 
             return s;
@@ -61,10 +65,11 @@ namespace PinState
         {
             Frame currentFrame = frames[currentFrameIndex];
 
+
             //check if this is the first throw or second
             bool regularFrame = currentFrame is RegularFrame;
             bool firstThrow = (regularFrame && Frame.IsNone(currentFrame)) || (!regularFrame && ((TenthFrame)currentFrame).GetThrow() == ThrowCount.First);
-            Console.WriteLine(regularFrame);
+            
             if (regularFrame)
             {
                 if (firstThrow)
