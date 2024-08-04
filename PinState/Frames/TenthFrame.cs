@@ -32,10 +32,13 @@ namespace PinState.Frames
         {
             pinsKnockedDown[0] = pins;
             Console.WriteLine("Pins knocked down: " + pins);
+            throwCount++;
+            Console.WriteLine(throwCount);
         }
 
         public override void SetSecondThrowPins(int pins)
         {
+            throwCount++;
         }
 
         public int[] GetPinsKnockedDownArr()
@@ -48,10 +51,13 @@ namespace PinState.Frames
             pinsKnockedDown[2] = pins;
         }
 
-        public void IncrementThrow()
+ /*       public void IncrementThrow()
         {
-            throwCount++;
-        }
+            if (throwCount != ThrowCount.Third)
+            {
+                throwCount++;
+            }
+        }*/
 
         public override int GetScore()
         {

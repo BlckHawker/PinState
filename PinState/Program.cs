@@ -438,6 +438,7 @@ namespace PinState
             game.Throw(1);
             Console.WriteLine(game);
 
+
             //Frame 10
             game.Throw(10);
             game.Throw(1);

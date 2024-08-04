@@ -19,43 +19,53 @@ namespace PinState.States
             this.pinsKnockedDown = currentFrame.GetPinsKnockedDownArr();
         }
 
-
-      
-
         public string GetFirstThrow()
         {
-            //is strike
-            if (pinsKnockedDown[0] == 10)
+            ThrowCount actualThrowCount = currentFrame.GetThrow();
+
+            if (actualThrowCount == ThrowCount.First)
             {
-                return "X";
+                //is strike
+                if (pinsKnockedDown[0] == 10)
+                {
+                    return "X";
+                }
+
+                //it's a number
+                return "" + pinsKnockedDown[0];
             }
 
-            //it's a number
-            return "" + pinsKnockedDown[0];
-
+            throw new Exception("This shouldn't happen");
         }
 
         public string GetSecondThrow()
         {
-            if (currentFrame.GetThrow() == ThrowCount.First)
-            {
-                return "";
+            ThrowCount actualThrowCount = currentFrame.GetThrow();
+
+            if (actualThrowCount == ThrowCount.Second) {
+                if (currentFrame.GetThrow() == ThrowCount.First)
+                {
+                    return "";
+                }
+
+                //second throw could be spare, strike or number
+                if (pinsKnockedDown[1] == 10)
+                {
+                    return "X";
+                }
+
+                //spare
+                if (pinsKnockedDown[0] != 10 && pinsKnockedDown[0] + pinsKnockedDown[1] == 10)
+                {
+                    return "/";
+                }
+
+                //number
+                return "" + pinsKnockedDown[1];
             }
 
-            //second throw could be spare, strike or number
-            if (pinsKnockedDown[1] == 10)
-            {
-                return "X";
-            }
+            throw new Exception("This shouldn't happen");
 
-            //spare
-            if (pinsKnockedDown[0] != 10 &&  pinsKnockedDown[0] + pinsKnockedDown[1] == 10)
-            {
-                return "/";
-            }
-
-            //number
-            return "" + pinsKnockedDown[1];
         }
 
         public string GetThirdThrow()

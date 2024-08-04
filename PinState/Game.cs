@@ -54,14 +54,6 @@ namespace PinState
             } while (counter == 10 || !Frame.IsNone(frames[counter]));
             s += $"Current Score: {GetScore()}\n==============================================";
 
-            if (currentFrame is TenthFrame) 
-            {
-                TenthFrame tenthFrame = (TenthFrame)currentFrame;
-                if (tenthFrame.GetThrow() != ThrowCount.Third)
-                { 
-                    tenthFrame.IncrementThrow();
-                }
-            }
             return s;
         }
 
@@ -72,7 +64,7 @@ namespace PinState
             //check if this is the first throw or second
             bool regularFrame = currentFrame is RegularFrame;
             bool firstThrow = (regularFrame && Frame.IsNone(currentFrame)) || (!regularFrame && ((TenthFrame)currentFrame).GetThrow() == ThrowCount.First);
-
+            Console.WriteLine(regularFrame);
             if (regularFrame)
             {
                 if (firstThrow)
@@ -87,11 +79,8 @@ namespace PinState
                 else
                 {
                     currentFrame.SetSecondThrowPins(pins);
-
-                    if (currentFrameIndex != 9)
-                    {
-                        currentFrameIndex++;
-                    }
+                    currentFrameIndex++;
+                    Console.WriteLine("Current index: " + currentFrameIndex);
                 }
             }
 
