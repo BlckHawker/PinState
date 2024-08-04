@@ -36,6 +36,7 @@ namespace PinState.Frames
 
         public override void SetSecondThrowPins(int pins)
         {
+            pinsKnockedDown[1] = pins;
             throwCount++;
         }
 
@@ -48,14 +49,6 @@ namespace PinState.Frames
         {
             pinsKnockedDown[2] = pins;
         }
-
- /*       public void IncrementThrow()
-        {
-            if (throwCount != ThrowCount.Third)
-            {
-                throwCount++;
-            }
-        }*/
 
         public override int GetScore()
         {

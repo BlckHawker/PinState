@@ -33,7 +33,8 @@ namespace PinState.States
 
         public string GetSecondThrow()
         {
-            if (currentFrame.GetThrow() == ThrowCount.First)
+            ThrowCount acutalThrow = currentFrame.GetThrow() - 1;
+            if (acutalThrow == ThrowCount.First)
             {
                 return "";
             }
@@ -56,7 +57,9 @@ namespace PinState.States
 
         public string GetThirdThrow()
         {
-            if (currentFrame.GetThrow() != ThrowCount.Third)
+            ThrowCount acutalThrow = currentFrame.GetThrow() - 1;
+
+            if (acutalThrow != ThrowCount.Third)
             {
                 return "";
             }

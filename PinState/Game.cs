@@ -52,6 +52,10 @@ namespace PinState
 
                 s += $"Frame {counter + 1}\n{currentFrame.ToString()}\n\n";
                 counter++;
+                if (counter == 10)
+                {
+                    break;
+                }
 
                 nextFrameIsEmpty = (counter != 9 && Frame.IsNone(frames[counter])) || (frames[counter] is TenthFrame && ((TenthFrame)frames[counter]).GetThrow() == ThrowCount.First); 
 
